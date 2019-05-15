@@ -6,8 +6,8 @@
             "defaultValue": "sea-cznr-identity-test",
             "type": "String"
         },
-        "serverfarms_CarZappServices_externalid": {
-            "defaultValue": "/subscriptions/48326b48-8155-4a5e-a0b7-e0ca9d5e635c/resourceGroups/cz-srv-storage-dev/providers/Microsoft.Web/serverfarms/CarZappServices",
+        "serverfarms_appserv_externalid": {
+            "defaultValue": "/subscriptions/1616fdb4-8937-4939-938e-5f2e2beacd69/resourceGroups/nr-test-rg/providers/Microsoft.Web/serverfarms/appserv",
             "type": "String"
         }
     },
@@ -33,7 +33,7 @@
                         "hostType": "Repository"
                     }
                 ],
-                "serverFarmId": "[parameters('serverfarms_CarZappServices_externalid')]",
+                "serverFarmId": "[parameters('serverfarms_appserv_externalid')]",
                 "reserved": false,
                 "scmSiteAlsoStopped": false,
                 "clientAffinityEnabled": true,
@@ -50,7 +50,7 @@
             "name": "[concat(parameters('sites_sea-cznr-identity-test_name'), '/web')]",
             "location": "Southeast Asia",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_sea-cznr-identity-test_name'))]"
+                "[resourceId('Microsoft.Web/sites', parameters('sites_sea_cz_identity_dev_name'))]"
             ],
             "properties": {
                 "numberOfWorkers": 1,
