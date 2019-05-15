@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "sites_sea_cz_identity_dev_name": {
-            "defaultValue": "sea-cz-identity-dev",
+            "defaultValue": "sea-cznr-identity-test",
             "type": "String"
         },
         "serverfarms_CarZappServices_externalid": {
@@ -16,19 +16,19 @@
         {
             "type": "Microsoft.Web/sites",
             "apiVersion": "2016-08-01",
-            "name": "[parameters('sites_sea_cz_identity_dev_name')]",
+            "name": "[parameters('sites_sea-cznr-identity-test_name')]",
             "location": "Southeast Asia",
             "kind": "app",
             "properties": {
                 "enabled": true,
                 "hostNameSslStates": [
                     {
-                        "name": "[concat(parameters('sites_sea_cz_identity_dev_name'), '.azurewebsites.net')]",
+                        "name": "[concat(parameters('sites_sea-cznr-identity-test_name'), '.azurewebsites.net')]",
                         "sslState": "Disabled",
                         "hostType": "Standard"
                     },
                     {
-                        "name": "[concat(parameters('sites_sea_cz_identity_dev_name'), '.scm.azurewebsites.net')]",
+                        "name": "[concat(parameters('sites_sea-cznr-identity-test_name'), '.scm.azurewebsites.net')]",
                         "sslState": "Disabled",
                         "hostType": "Repository"
                     }
@@ -47,10 +47,10 @@
         {
             "type": "Microsoft.Web/sites/config",
             "apiVersion": "2016-08-01",
-            "name": "[concat(parameters('sites_sea_cz_identity_dev_name'), '/web')]",
+            "name": "[concat(parameters('sites_sea-cznr-identity-test_name'), '/web')]",
             "location": "Southeast Asia",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_sea_cz_identity_dev_name'))]"
+                "[resourceId('Microsoft.Web/sites', parameters('sites_sea-cznr-identity-test_name'))]"
             ],
             "properties": {
                 "numberOfWorkers": 1,
@@ -75,7 +75,7 @@
                 "httpLoggingEnabled": false,
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": false,
-                "publishingUsername": "$sea-cz-identity-dev",
+                "publishingUsername": "$sea-cznr-identity-test",
                 "scmType": "None",
                 "use32BitWorkerProcess": true,
                 "webSocketsEnabled": false,
@@ -137,13 +137,13 @@
         {
             "type": "Microsoft.Web/sites/hostNameBindings",
             "apiVersion": "2016-08-01",
-            "name": "[concat(parameters('sites_sea_cz_identity_dev_name'), '/', parameters('sites_sea_cz_identity_dev_name'), '.azurewebsites.net')]",
+            "name": "[concat(parameters('sites_sea-cznr-identity-test_name'), '/', parameters('sites_sea-cznr-identity-test_name'), '.azurewebsites.net')]",
             "location": "Southeast Asia",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_sea_cz_identity_dev_name'))]"
+                "[resourceId('Microsoft.Web/sites', parameters('sites_sea-cznr-identity-test_name'))]"
             ],
             "properties": {
-                "siteName": "sea-cz-identity-dev",
+                "siteName": "sea-cznr-identity-test",
                 "hostNameType": "Verified"
             }
         }
